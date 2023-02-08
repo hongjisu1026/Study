@@ -1,21 +1,21 @@
 package com.Register;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @SuppressWarnings("unchecked")
 public class ReadFile implements PathString {
-    List<MemberInfo> memberList = WriteFile.memberList;
+    ArrayList<MemberInfo> list;
     public void readTextFile() {
         try {
             FileInputStream fis = new FileInputStream(path);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            memberList = (List<MemberInfo>) ois.readObject();
-            ois.close();
-            memberList.forEach(System.out::println);
+            BufferedInputStream inputStream = new BufferedInputStream(fis);
+            ObjectInputStream ois = new ObjectInputStream(inputStream);
+            // MemberInfo readInfo = (MemberInfo) ois.readObject();
+            list = (ArrayList<MemberInfo>) ois.readObject();
+            // readInfo.showMemberInfo();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

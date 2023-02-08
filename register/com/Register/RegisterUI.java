@@ -1,8 +1,10 @@
 package com.Register;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RegisterUI {
+    ReadFile readFile = new ReadFile();
 
     public void input() {
         Scanner sc = new Scanner(System.in);
@@ -17,8 +19,13 @@ public class RegisterUI {
 
         WriteFile writeFile = new WriteFile();
         writeFile.inputMemberInfo(new MemberInfo(memberId, memberPwd, name, nickname));
+    }
 
-        ReadFile readFile = new ReadFile();
+    public void read() {
         readFile.readTextFile();
+        ArrayList<MemberInfo> info = readFile.list;
+        for(MemberInfo memberInfo : info) {
+            memberInfo.showMemberInfo();
+        }
     }
 }

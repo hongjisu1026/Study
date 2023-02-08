@@ -1,3 +1,4 @@
+/*
 package com.Register;
 
 import java.util.ArrayList;
@@ -6,7 +7,6 @@ import java.util.List;
 public class Register {
     ReadFile readFile = new ReadFile();
     WriteFile writeFile = new WriteFile();
-    List<MemberInfo> memberList = WriteFile.memberList;
 
     public void register(String memberId, String memberPwd, String name, String nickname) {
         boolean isMemberId = duplicateMemberId(memberId);
@@ -104,3 +104,4 @@ public class Register {
         }
     }
 }
+*/
